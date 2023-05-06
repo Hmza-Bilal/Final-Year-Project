@@ -1,0 +1,26 @@
+<%
+=begin%>
+ <div class="text-center">
+    <h1 class="mt-5 text-center"> SellNow - Buying or Selling becomes Easy </h1>
+    <p class="lead text-center">Register or Log In to continue</p>
+    <%= link_to "Sign Up", new_account_registration_path , class: "btn btn-success"%>
+    <%= link_to "Log In", new_account_session_path , class: "btn btn-dark"%>
+</div> 
+<%
+=end%>
+<% if !user_signed_in? %>
+    <div class="text-center mt-1 home__top">
+        <div class="jumbotron">
+        <h1 class="display-4">WeShare - Lets Connect to the world</h1>
+        <p class="lead">Register or Log In to Continue</p>
+        <hr class="my-3">
+        <p class="lead">
+            <%= link_to "Sign Up", new_user_registration_path , class: "btn btn-success"%>
+            <%= link_to "Log In", new_user_session_path , class: "btn btn-dark"%>
+        </p>
+        <%= image_tag 'HomePic.png', class: "img-fluid max-width: 100% height:auto",alt: 'HomeImage' %>
+        </div>
+    </div>
+<%else%>
+    <%= link_to "Sign Out", destroy_user_session_path , :method => :delete ,  class: "btn btn-dark"%>
+<%end%>

@@ -1,0 +1,18 @@
+<nav class="navbar-dark bg-dark">
+<div class="icons__div">
+    <% if user_signed_in? %>
+        <% if request.path == "/posts"%>
+          <%= link_to posts_path do %><i class="fas fa-home" style="color:white;"></i><%end%>
+        <%else%>
+          <%= link_to posts_path do %><i class="fas fa-home" style="color:#909090;"></i><%end%>
+        <%end%>
+        <% if request.path == "/posts/new"%>
+          <%= link_to new_post_path do %><i class="fas fa-plus-square" style="color:white;"></i><%end%>
+        <%else%>  
+          <%= link_to new_post_path do %><i class="fas fa-plus-square" style="color:#909090;"></i><%end%>
+        <%end%>
+        <%= link_to destroy_user_session_path , method: :delete do %><i class="fas fa-sign-out-alt"></i><%end%>
+        
+    <%end%>
+</div>
+</nav> 
